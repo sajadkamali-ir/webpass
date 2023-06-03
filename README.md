@@ -1,7 +1,5 @@
+## WebPass - React Web Based Password Generator
 
-## React Password Generator
+This is a simple React Web Application that can generate complex passwords for accounts. I dockerized this application for kubernetes deployment.
 
-You can check out the application here [React Password Generator](https://fervent-volhard-f2991a.netlify.app/).
-
-
-
+[Original Project](https://github.com/Megh2507/react_password_generator "Original Project")
