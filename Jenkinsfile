@@ -13,7 +13,7 @@ pipeline {
             }
             steps {
                 sh "cp .env.example .env"
-                sh "docker build -t ${DOCKER_IMAGE} .
+                sh "docker build -t ${DOCKER_IMAGE} ."
                 echo "Build Done !"
             }
         }
