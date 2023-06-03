@@ -1,6 +1,6 @@
 
 pipeline {
-    agent none
+    agent any
     environment {
             PROJECT_NAME = "webapp"
             DOCKER_IMAGE = "${PROJECT_NAME}_frontend_site"
