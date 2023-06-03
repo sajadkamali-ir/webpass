@@ -8,9 +8,6 @@ pipeline {
     }
     stages {
         stage('build') {
-            agent {
-                label 'jenkins-server'
-            }
             steps {
                 sh "cp .env.example .env"
                 sh "docker build -t ${DOCKER_IMAGE} ."
