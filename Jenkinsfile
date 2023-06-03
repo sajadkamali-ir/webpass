@@ -13,6 +13,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: "${DOCKEHUB_CREDENTIALS_ID}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh "docker build -t ${DOCKER_IMAGE} . "
+                    sh "docker push ${DOCKER_IMAGE}"
                     echo "Build Done"
                 }
             }
