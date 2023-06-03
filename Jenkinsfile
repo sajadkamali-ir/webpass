@@ -6,7 +6,8 @@ pipeline {
             BASE_IMAGE = "${PROJECT_NAME}_frontend_site"
             DOCKER_USER = "sajademperor"
             DOCKER_IMAGE = "${DOCKER_USER}/${BASE_IMAGE}:${BUILD_NUMBER}"
-            DOCKEHUB_CREDENTIALS_ID = "docker-creds"            
+            DOCKEHUB_CREDENTIALS_ID = "docker-creds" 
+            KUBECONFIG="/var/lib/jenkins/.k3s.yaml"
     }
     stages {
         stage('build') {
@@ -19,9 +20,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh "export KUBECONFIG=/var/lib/jenkins/.k3s.yaml"
-                sh "kubectl config view"
-                sh "kubectl set image deployments/webpass-deployment webpass-panel=docker.io/sajademperor/webpass_frontend_site:{BUILD_NUMBER}"
+                sh "kubectl --kubeconfig=${KUBECONFIG} set image deployments/webpass-deployment webpass-panel=docker.io/sajademperor/webpass_frontend_site:${BUILD_NUMBER}"
                 
             }
         }
