@@ -20,7 +20,7 @@ pipeline {
         stage('deploy') {
             steps {
                 sh "export KUBECONFIG=/var/lib/jenkins/.k3s.yaml"
-                sh "kubectl get po"
+                sh "kubectl config view"
                 sh "kubectl set image deployments/webpass-deployment webpass-panel=docker.io/sajademperor/webpass_frontend_site:{BUILD_NUMBER}"
                 
             }
