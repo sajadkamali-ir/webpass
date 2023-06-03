@@ -19,6 +19,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
+                sh "kubectl get po"
                 sh "kubectl set image deployments/webpass-deployment webpass-panel=docker.io/sajademperor/webpass_frontend_site:{BUILD_NUMBER}"
                 
             }
