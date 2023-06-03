@@ -5,7 +5,7 @@ pipeline {
             REPO_NAME = "docker.io"
             PROJECT_NAME = "webpass"
             BASE_IMAGE = "${PROJECT_NAME}_frontend_site"
-            DOCKER_IMAGE = "${REPO_NAME}/${BASE_IMAGE}/${BRANCH_NAME}:${BUILD_NUMBER}"
+            DOCKER_IMAGE = "${REPO_NAME}/${BASE_IMAGE}:${BUILD_NUMBER}"
  
 
             
